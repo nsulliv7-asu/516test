@@ -1,9 +1,10 @@
-name: Fast Tests
+name: Tests
 
 on:
   push:
     branches:
       - main
+      - dev
   pull_request:
     branches:
       - main
@@ -11,7 +12,7 @@ on:
 
 jobs:
   fast-test:
-    if: github.ref == 'refs/heads/dev'
+    if: github.base_ref == 'dev' || github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +32,7 @@ jobs:
         run: ./gradlew fastTest
 
   full-test:
-    if: github.ref == 'refs/heads/main'
+    if: github.base_ref == 'main' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:

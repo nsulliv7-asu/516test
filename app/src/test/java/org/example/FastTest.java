@@ -8,6 +8,6 @@ import static org.junit.Assert.*;
 
 public class FastTest {
     @Test public void appHasAGreeting() {
-        assertTrue(true);
+        assertEquals(0, 0);
     }
 }
