@@ -11,7 +11,7 @@ on:
 
 jobs:
   fast-test:
-    if: github.ref == 'refs/heads/dev'
+    if: github.base_ref == 'dev'
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +31,7 @@ jobs:
         run: ./gradlew fastTest
 
   full-test:
-    if: github.ref == 'refs/heads/main'
+    if: github.base_ref == 'main'
     runs-on: ubuntu-latest
 
     steps:
